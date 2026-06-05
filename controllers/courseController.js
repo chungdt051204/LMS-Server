@@ -19,7 +19,7 @@ export class CourseController {
       console.log(lessonArray);
       const categories = await new CategoryService().getAllCategories();
       const categoryIds = categories?.map((value) => {
-        return value._id;
+        return value?.item?._id;
       });
       if (
         validateForm.validateFormCourse({ courseInfo: formData, categoryIds })
